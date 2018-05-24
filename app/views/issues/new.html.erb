@@ -1,1 +1,21 @@
-New Form
+<div class="issue-new">
+  <h3>New Issue</h3>
+  <form action="<%= issues_path %>" method="POST">
+    <p>
+      <label>Title</label>
+      <input type="text" id="issue_title" name="issues[title]">
+    </p>
+    <p>
+      <label>Description</label>
+      <input type="text" id="issue_description" name="issues[description]">
+    </p>
+    <p class="full">
+      <label>Solution</label>
+      <textarea name="issues[solution]" rows="5"></textarea>
+    </p>
+    <p class="full">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <button href="issues/create">Submit</button>
+    </p>
+  </form>
+</div>

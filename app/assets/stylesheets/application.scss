@@ -28,6 +28,8 @@ body{
  .container{
    max-width: 1170px;
    padding:1em;
+   margin-left: auto;
+   margin-right: auto;
  }
 
  .wrapper{
@@ -38,13 +40,18 @@ body{
    padding:1em;
  }
 
+ ul{
+   list-style: none;
+   padding: 0;
+ }
+
 .navbar .navbar-nav .navbar-expand-lg .navbar-light .bg-light{
   display:flex;
   flex-wrap:wrap;
 }
 
 .navbar{
-  background-color:#e1dfdf !important;
+  background-color:#f9feff !important;
   margin-bottom: 10px;
 }
 
@@ -53,16 +60,12 @@ body{
 }
 
 .navbar-brand span{
-  color:#fff;
+  color:#484e74 !important;
 }
 
 
 .nav-link{
   color:#484e74 !important;
-}
-
-a:hover{
-  color:red !important;
 }
 
 .brand-color{

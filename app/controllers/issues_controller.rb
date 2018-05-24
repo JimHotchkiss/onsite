@@ -12,12 +12,17 @@ class IssuesController < ApplicationController
       redirect_to @issue
     else
       render 'new'
-    end 
+    end
+  end
+
+  def show
+    @issue = Issue.find(params[:id])
+
   end
 
   private
   def issue_params
-    params.require(:issue).permit(:title, :description, :solution)
+    params.require(:issues).permit(:title, :description, :solution)
   end
 
 end

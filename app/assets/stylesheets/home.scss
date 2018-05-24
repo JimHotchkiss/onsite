@@ -2,12 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .wrapper{
-  background-color:#e1dfdf;
+  background-color:#f9feff;
   padding:1em;
 }
 
 .content-title{
   text-align: center;
+  border-bottom: 1px solid #d6dce0;
 }
 
 .issue-date span {
