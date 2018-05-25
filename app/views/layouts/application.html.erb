@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">SOW <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#"><%= link_to "SOW", sows_path, :class => "nav-link-sow" %><span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Category 1</a>
@@ -38,7 +38,7 @@
           </ul>
           <span class="navbar-text">
             <!-- if logged in -->
-            <%= link_to 'New Issue', new_issue_path %>
+            <%= link_to 'New Issue', new_issue_path, :class => "navbar-new-issue-text" %>
           </span>
         </div>
       </nav> <!-- End NavBar-->

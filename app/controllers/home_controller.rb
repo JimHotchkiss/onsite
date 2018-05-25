@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
   def index
-  end 
+    @issues = Issue.all.order('created_at DESC').limit(5)
+  end
 end
