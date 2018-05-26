@@ -1,7 +1,22 @@
 <div class="content-title">
   <h3 class="title"><%= @issue.title%></h3>
     <p class="issue-author">by <span>john doe</span></p>
-    <p class="issue-date">Submitted approximately <span><%= time_ago_in_words(@issue.created_at) %></span> ago</p>
+    <p class="issue-date">Submitted <span><%= time_ago_in_words(@issue.created_at) %></span> ago</p>
+    <h4 class="issue-description">Description</h4>
     <p class="issue-description"><%= @issue.description%></p>
+    <h4 class="issue-solution">Solution</h4>
     <p class="issue-solution"><%= @issue.solution%></p>
+</div>
+
+<!-- Comments-->
+
+    <!-- Comment form -->
+    <div id="comments">
+      <h2> <%= pluralize(@issue.comments.count, "comment") %></h2>
+      <%= render @issue.comments %>
+      <h3>Add Comment:</h3>
+        <%= render 'comments/form' %>
+    </div>
+  </div>
+	</div>
 </div>

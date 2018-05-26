@@ -38,5 +38,17 @@
   color: #fff;
   outline:0;
   transition: background-color 2s ease-out;
+}
 
+.issue-description{
+  text-align: left;
+}
+
+.issue-solution{
+  text-align: left;
+}
+
+.comment_content{
+  border-bottom: 1px solid #d6dce0;
+  margin-bottom:10px; 
 }
