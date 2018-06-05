@@ -1,4 +1,6 @@
 class IssuesController < ApplicationController
+  include IssuesHelper
+
   def index
   end
 
@@ -8,7 +10,6 @@ class IssuesController < ApplicationController
 
   def create
     @issue = Issue.new(issue_params)
-    binding.pry
     if @issue.save
       redirect_to @issue
     else
@@ -19,6 +20,19 @@ class IssuesController < ApplicationController
   def show
     @issue = Issue.find(params[:id])
   end
+
+  def edit
+   find_issue
+ end
+
+ def update
+   find_issue
+   if @issue.update(params[:issue].permit(:title, :description, :solution, :category_ids => []))
+     redirect_to @issue
+   else
+     render 'edit'
+   end
+ end
 
   private
   def issue_params

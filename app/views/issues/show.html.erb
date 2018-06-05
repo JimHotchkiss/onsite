@@ -6,6 +6,10 @@
     <p class="issue-description"><%= @issue.description%></p>
     <h4 class="issue-solution">Solution</h4>
     <p class="issue-solution"><%= @issue.solution%></p>
+    <p class="issue-edit-delete">
+      | <%= link_to 'Edit', edit_issue_path(@issue) %>
+      | <%= link_to 'Delete', @issue, method: :delete, data: {confirm: 'Are you sure?'} %>
+    </p>
 </div>
 
 <!-- Comments-->
