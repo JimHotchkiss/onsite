@@ -26,17 +26,11 @@
             <li class="nav-item active">
               <a class="nav-link" href="#"><%= link_to "SOW", sows_path, :class => "nav-link-sow" %><span class="sr-only">(current)</span></a>
             </li>
-
+            <% Category.all.each do |category|%>
             <li class="nav-item">
-              <a class="nav-link" href="#">Category 1</a>
+              <%= link_to category.name, category_path(category), :class => "nav-link"%>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Category 2</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Category 3</a>
-            </li>
-          </ul>
+            <% end %>
           <span class="navbar-text">
             <!-- if logged in -->
             <%= link_to 'New Issue', new_issue_path, :class => "navbar-new-issue-text" %>

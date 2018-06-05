@@ -8,4 +8,6 @@ get "sows" => "sows#show"
 resources :issues do
    resources :comments
  end
+
+resources :categories
 end
