@@ -11,35 +11,30 @@
   </div>
 <% end %>
 
-<form action="<%= issues_path %>" method="POST">
-  <p>
-    <label>Title</label>
-    <input type="text" id="issue_title" name="issue[title]">
-  </p>
-  <p>
-    <label>Description</label>
-    <input type="text" id="issue_description" name="issue[description]">
-  </p>
-  <p class="full">
-    <label>Solution</label>
-    <textarea name="issue[solution]" rows="5"></textarea>
-  </p>
-
-  <p class="full">
-    <label>Category</label>
-    <% Category.all.each do |category|%>
-      <p>
-        <label for="category_id <%= category.id %>"><%= category.name %></label>
-        <input type="checkbox" name="issue[category_ids][]" value="<%= category.id %>" id>
-      </p>
-    <% end %>
-  </p>
-
-  <p class="full">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <button href="issues/create">Submit</button>
-  </p>
-</form>
-
-
+  <%= form_for @issue do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+    <p class="full">
+      <%= f.label :solution %>
+      <%= f.text_area :solution, :class => "new-solution" %>
+    </p>
+    <p class="full">
+      <label>Category</label>
+      <% Category.all.each do |category|%>
+        <p>
+          <label for="category_id <%= category.id %>"><%= category.name %></label>
+          <input type="checkbox" name="issue[category_ids][]" value="<%= category.id %>" id>
+        </p>
+      <% end %>
+    </p>
+    <p class="full">
+      <%= f.submit :submit, :class => "new-submit" %>
+    <p>
+  <% end %>
 </div>
