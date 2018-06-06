@@ -1,43 +1,45 @@
 <div class="issue-new">
 
-  <% if @issue.errors.any? %>
-    <div class="errors">
-      <h3><%=pluralize(@issue.errors.count, "error") %> prevented this issue from saving </h3>
-      <ul>
-        <% @issue.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <form action="<%= issues_path %>" method="POST">
-    <p>
-      <label>Title</label>
-      <input type="text" id="issue_title" name="issue[title]">
-    </p>
-    <p>
-      <label>Description</label>
-      <input type="text" id="issue_description" name="issue[description]">
-    </p>
-    <p class="full">
-      <label>Solution</label>
-      <textarea name="issue[solution]" rows="5"></textarea>
-    </p>
-
-    <p class="full">
-      <label>Category</label>
-      <% Category.all.each do |category|%>
-        <p>
-          <label for="category_id <%= category.id %>"><%= category.name %></label>
-          <input type="checkbox" name="issue[category_ids][]" value="<%= category.id %>" id>
-        </p>
+<% if @issue.errors.any? %>
+  <div class="errors">
+    <h3><%=pluralize(@issue.errors.count, "error") %> prevented this issue from saving </h3>
+    <ul>
+      <% @issue.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
       <% end %>
-    </p>
+    </ul>
+  </div>
+<% end %>
 
-    <p class="full">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <button href="issues/create">Submit</button>
-    </p>
-  </form>
+<form action="<%= issues_path %>" method="POST">
+  <p>
+    <label>Title</label>
+    <input type="text" id="issue_title" name="issue[title]">
+  </p>
+  <p>
+    <label>Description</label>
+    <input type="text" id="issue_description" name="issue[description]">
+  </p>
+  <p class="full">
+    <label>Solution</label>
+    <textarea name="issue[solution]" rows="5"></textarea>
+  </p>
+
+  <p class="full">
+    <label>Category</label>
+    <% Category.all.each do |category|%>
+      <p>
+        <label for="category_id <%= category.id %>"><%= category.name %></label>
+        <input type="checkbox" name="issue[category_ids][]" value="<%= category.id %>" id>
+      </p>
+    <% end %>
+  </p>
+
+  <p class="full">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <button href="issues/create">Submit</button>
+  </p>
+</form>
+
+
 </div>
