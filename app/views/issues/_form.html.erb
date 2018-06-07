@@ -24,13 +24,11 @@
       <%= f.label :solution %>
       <%= f.text_area :solution, :class => "new-solution" %>
     </p>
-    <p class="full">
-      <label>Category</label>
+    <p class="checkbox-grid">
       <% Category.all.each do |category|%>
-        <p>
-          <label for="category_id <%= category.id %>"><%= category.name %></label>
-          <input type="checkbox" name="issue[category_ids][]" value="<%= category.id %>" id>
-        </p>
+      <%= label_tag dom_id(category), category.name %>
+      <%= check_box_tag "issue[category_ids][]", category.id, @issue.category_ids.include?(category.id), id: dom_id(category), :class => "css-checkbox" %>
+
       <% end %>
     </p>
     <p class="full">
