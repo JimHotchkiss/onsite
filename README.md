@@ -212,3 +212,49 @@
 </div>
 
 -->
+
+::-webkit-input-placeholder{
+  color: #b1c1e2;
+}
+
+.style-textfield{
+  width:100%;
+}
+
+.style-input{
+  margin-top: 20px;
+
+}
+
+label{
+  display: block;
+  padding:1rem 0 .1rem;
+}
+
+.style-checkbox{
+  display: block;
+}
+
+.style-submit{
+  margin-top: 20px;
+
+}
+
+.new-submit{
+  width:100%;
+  padding:1em;
+  border:1px solid #69e6ff;
+  background: #c9e6ff;
+  border:0;
+}
+
+.new-submit:hover, .new-submit:focus{
+  background: #92bde7;
+  color: #fff;
+  outline:0;
+  transition: background-color 2s ease-out;
+}
+
+.errors{
+  color:red;
+}

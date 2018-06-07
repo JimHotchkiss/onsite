@@ -8,38 +8,32 @@
     </ul>
   </div>
 <% end %>
-<div class="issue-new">
-  <%= form_for @issue do |f| %>
-    <div style-input>
-      <%= f.label :title %>
-      <%= f.text_field :title, :placeholder => "title", :class => "style-textfield"%>
-    </div>
-    <div style-input>
-      <%= f.label :description %>
-      <%= f.text_field :description, :placeholder => "description", :class => "style-textfield"%>
-    </div>
-    <div>
-      <%= f.label :solution %>
-      <%= f.text_area :solution, :placeholder => "solution", :class => "style-textfield" %>
-    </div>
-
-
-    <div>
-      <%=f.label :category %>
-    </div>
-
-    <div class="style-checkbox">
-      <% Category.all.each do |category|%>
-      <ul>
-        <li>
-          <%= label_tag dom_id(category), category.name %>
-          <%= check_box_tag "issue[category_ids][]", category.id, @issue.category_ids.include?(category.id), id: dom_id(category), :class => "css-checkbox" %>
-        </li>
-      </ul>
-      <% end %>
-    </div>
-    <div class="style-submit">
-      <%= f.submit :submit, :class => "new-submit" %>
-    <div>
-  <% end %>
+  <div class="form-group">
+    <%= form_for @issue do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, :placeholder => "title", :class => "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, :placeholder => "description", :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :solution %>
+    <%= f.text_area :solution,:placeholder => "solution", :class => "form-control" %>
+  </div>
+  <div>
+    <%=f.label :category %>
+    <% Category.all.each do |category|%>
+    <ul>
+      <li>
+        <%= label_tag dom_id(category), category.name  %>
+        <%= check_box_tag "issue[category_ids][]", category.id, @issue.category_ids.include?(category.id), id: dom_id(category)%>
+      </li>
+    </ul>
+    <% end %>
+  </div>
+  <div >
+    <%= f.submit :submit, class: "btn-block" %>
+  <div>
+    <% end %>
 </div>
