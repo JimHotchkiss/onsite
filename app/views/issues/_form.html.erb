@@ -1,8 +1,6 @@
-<div class="issue-new">
-
 <% if @issue.errors.any? %>
   <div class="errors">
-    <h3><%=pluralize(@issue.errors.count, "error") %> prevented this issue from saving </h3>
+    <h5><%=pluralize(@issue.errors.count, "error") %> prevented this issue from saving </h3>
     <ul>
       <% @issue.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -10,29 +8,38 @@
     </ul>
   </div>
 <% end %>
-
+<div class="issue-new">
   <%= form_for @issue do |f| %>
-    <div>
+    <div style-input>
       <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, :placeholder => "title", :class => "style-textfield"%>
+    </div>
+    <div style-input>
+      <%= f.label :description %>
+      <%= f.text_field :description, :placeholder => "description", :class => "style-textfield"%>
     </div>
     <div>
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-    </div>
-    <p class="full">
       <%= f.label :solution %>
-      <%= f.text_area :solution, :class => "new-solution" %>
-    </p>
-    <p class="checkbox-grid">
-      <% Category.all.each do |category|%>
-      <%= label_tag dom_id(category), category.name %>
-      <%= check_box_tag "issue[category_ids][]", category.id, @issue.category_ids.include?(category.id), id: dom_id(category), :class => "css-checkbox" %>
+      <%= f.text_area :solution, :placeholder => "solution", :class => "style-textfield" %>
+    </div>
 
+
+    <div>
+      <%=f.label :category %>
+    </div>
+
+    <div class="style-checkbox">
+      <% Category.all.each do |category|%>
+      <ul>
+        <li>
+          <%= label_tag dom_id(category), category.name %>
+          <%= check_box_tag "issue[category_ids][]", category.id, @issue.category_ids.include?(category.id), id: dom_id(category), :class => "css-checkbox" %>
+        </li>
+      </ul>
       <% end %>
-    </p>
-    <p class="full">
+    </div>
+    <div class="style-submit">
       <%= f.submit :submit, :class => "new-submit" %>
-    <p>
+    <div>
   <% end %>
 </div>

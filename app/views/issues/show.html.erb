@@ -4,7 +4,7 @@
     <p class="issue-date">Submitted <span><%= time_ago_in_words(@issue.created_at) %></span> ago</p>
     <h4 class="issue-description">Description</h4>
     <p class="issue-description"><%= @issue.description%></p>
-    <h4 class="issue-solution">Solution</h4>
+    <h4 class="issue-solution-title">Solution</h4>
     <p class="issue-solution"><%= @issue.solution%></p>
     <p class="issue-edit-delete">
       | <%= link_to 'Edit', edit_issue_path(@issue) %>
