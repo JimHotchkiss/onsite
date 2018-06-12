@@ -11,11 +11,33 @@
 
 <%= form_for @issue do |f| %>
   <p>
-    <%= f.label :title %>
-    <%= f.text_field :title%>
+    <%= f.label :title, :class => "issue-block" %>
+    <%= f.text_field :title, :class => "issue-input"%>
   </p>
 
   <p>
-    <%= f.submit :submit%>
+    <%= f.label :description, :class => "issue-block" %>
+    <%= f.text_field :description, :class => "issue-input"%>
+  </p>
+
+  <p>
+    <%= f.label :solution, :class => "issue-block" %>
+    <%= f.text_area :solution, :class => "issue-input"%>
+  </p>
+
+  <p>
+    <%=f.label :category %>
+    <% Category.all.each do |category|%>
+    <ul>
+      <li>
+        <%= label_tag dom_id(category), category.name, :class => "category-label"  %>
+        <%= check_box_tag "issue[category_ids][]", category.id, @issue.category_ids.include?(category.id), id: dom_id(category)%>
+      </li>
+    </ul>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.submit :submit, :class => "issue-submit" %>
   </p>
 <%end%>

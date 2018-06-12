@@ -16,7 +16,7 @@
 
     <!-- Comment form -->
     <div id="comments">
-      <h2> <%= pluralize(@issue.comments.count, "comment") %></h2>
+      <h5> <%= pluralize(@issue.comments.count, "comment") %></h5>
       <%= render @issue.comments %>
       <h3>Add Comment:</h3>
         <%= render 'comments/form' %>
