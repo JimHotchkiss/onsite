@@ -1,6 +1,6 @@
 <% if @issue.errors.any? %>
   <div class="errors">
-    <h5><%=pluralize(@issue.errors.count, "error") %> prevented this issue from saving </h3>
+    <h5><%=pluralize(@issue.errors.count, "error") %> prevented this issue from saving </h5>
     <ul>
       <% @issue.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -8,32 +8,14 @@
     </ul>
   </div>
 <% end %>
-  <div class="form-group">
-    <%= form_for @issue do |f| %>
+
+<%= form_for @issue do |f| %>
+  <p>
     <%= f.label :title %>
-    <%= f.text_field :title, :placeholder => "title", :class => "form-control"%>
-  </div>
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_field :description, :placeholder => "description", :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :solution %>
-    <%= f.text_area :solution,:placeholder => "solution", :class => "form-control" %>
-  </div>
-  <div>
-    <%=f.label :category %>
-    <% Category.all.each do |category|%>
-    <ul>
-      <li>
-        <%= label_tag dom_id(category), category.name  %>
-        <%= check_box_tag "issue[category_ids][]", category.id, @issue.category_ids.include?(category.id), id: dom_id(category)%>
-      </li>
-    </ul>
-    <% end %>
-  </div>
-  <div >
-    <%= f.submit :submit, class: "btn-block" %>
-  <div>
-    <% end %>
-</div>
+    <%= f.text_field :title%>
+  </p>
+
+  <p>
+    <%= f.submit :submit%>
+  </p>
+<%end%>

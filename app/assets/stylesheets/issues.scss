@@ -3,25 +3,3 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /* Form style */
-.form-control::-webkit-input-placeholder{
-  color: #b1c1e2;
-}
-
-.errors{
-  color:red;
-}
-
-.btn-block{
-  width:100%;
-  padding:1em;
-  border:1px solid #69e6ff;
-  background: #c9e6ff;
-  border:0;
-}
-
-.btn-block:hover, .btn-block:focus{
-  background: #92bde7;
-  color: #fff;
-  outline:0;
-  transition: background-color 2s ease-out;
-}
