@@ -1,10 +1,10 @@
 <div class="comment clearfix">
   <!-- render @issue.comments-->
   <div class="comment_content">
-    <p class="comment_name"><strong>@email.com</strong></p>
+    <p class="comment_name"><strong>@email.com</strong> | <span><%= link_to 'delete comment', [comment.issue, comment], :class => "delete-link", method: :delete, data: {confirm: 'Are you sure?'}%></span></p>
+
     <p class="comment_body"><%= comment.body %></p>
-    <p class="comment_time"><%= time_ago_in_words(comment.created_at) %> Ago</p>
-    <p class="issue-edit-delete">
-      <%= link_to 'Delete', [comment.issue, comment], method: :delete, data: {confirm: 'Are you sure?'}%>
+    <p class="comment_time">
+      <%= time_ago_in_words(comment.created_at) %> Ago
     </p>
   </div>

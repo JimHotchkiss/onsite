@@ -25,3 +25,19 @@
   outline:0;
   transition: background-color 2s ease-out;
 }
+
+.comment_time{
+  font-style: oblique;
+  font-size: 15px;
+}
+
+.comment_content{
+  border-bottom: 1px solid #d6dce0;
+  margin-bottom: 10px;
+
+}
+
+.delete-link:link {
+  text-decoration:none;
+  font-size: 15px;
+}

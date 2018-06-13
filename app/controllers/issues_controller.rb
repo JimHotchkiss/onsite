@@ -34,6 +34,11 @@ class IssuesController < ApplicationController
    end
  end
 
+ def destroy
+   find_issue.destroy
+   redirect_to '/'
+ end
+
   private
   def issue_params
     params.require(:issue).permit(:title, :description, :solution, :category_ids => [])
