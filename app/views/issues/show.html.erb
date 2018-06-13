@@ -1,6 +1,6 @@
 <div class="content-title">
   <h3 class="title"><%= @issue.title%></h3>
-    <p class="issue-author">by <span>john doe</span></p>
+    <p class="issue-author">by <span><%= @issue.user.email%></span></p>
     <p class="issue-date">Submitted <span><%= time_ago_in_words(@issue.created_at) %></span> ago</p>
     <h4 class="issue-description">Description</h4>
     <p class="issue-description"><%= @issue.description%></p>

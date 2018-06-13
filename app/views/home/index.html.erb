@@ -1,7 +1,7 @@
 <% @issues.each do |issue | %>
   <div class="content-title">
     <h3 class="title"><%= link_to issue.title, issue, :class => "title" %></h3>
-      <p class="issue-author">by <span>john doe</span></p>
+      <p class="issue-author">by <span><%= issue.user.email%></span></p>
       <p class="issue-date"><span><%= issue.created_at.strftime("%B, %d, %Y") %></span></p>
   </div>
 <% end %>

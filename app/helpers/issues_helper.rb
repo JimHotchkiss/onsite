@@ -5,7 +5,6 @@ module IssuesHelper
  end
 
  def issue_user
-   binding.pry
    @issue.user_id = current_user.id
    @issue.save
  end
