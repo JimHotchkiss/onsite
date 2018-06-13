@@ -11,6 +11,7 @@ class IssuesController < ApplicationController
   def create
     @issue = Issue.new(issue_params)
     if @issue.save
+      issue_user
       redirect_to @issue
     else
       render 'new'
