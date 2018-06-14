@@ -1,7 +1,7 @@
 <div class="comment clearfix">
   <!-- render @issue.comments-->
   <div class="comment_content">
-    <p class="comment_name"><strong>@email.com</strong> | <span><%= link_to 'delete comment', [comment.issue, comment], :class => "delete-link", method: :delete, data: {confirm: 'Are you sure?'}%></span></p>
+    <p class="comment_name"><strong>@email.com</strong><% if comment.user_id == current_user.id %>  <span> ~ <%= link_to 'delete comment', [comment.issue, comment], :class => "delete-link", method: :delete, data: {confirm: 'Are you sure?'}%></span> <% end %></p>
 
     <p class="comment_body"><%= comment.body %></p>
     <p class="comment_time">

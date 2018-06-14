@@ -34,15 +34,20 @@
           <span class="navbar-text">
             <!-- if logged in -->
             <%= link_to 'New Issue', new_issue_path, :class => "navbar-new-issue-text" %><br>
-            <%= link_to "sign in", user_session_path %>
-            <%= link_to "sign up", new_user_registration_path %>
-            <%= link_to "sign out", destroy_user_session_path, :method => :delete%>
+
           </span>
         </div>
       </nav> <!-- End NavBar-->
       <!-- .wrapper will be where the CSS Grid is applied -->
 
       <div class="wrapper">
+        <% if logged_in? %>
+          <%= link_to "sign-out", destroy_user_session_path, :method => :delete%>
+          <% else %>
+            <%=link_to "sign-in", user_session_path%><%=link_to "sign-up", new_user_registration_path %>
+        <% end %>
+
+
         <%= notice %>
         <%= alert %>
         <%= yield %>

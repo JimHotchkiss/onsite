@@ -4,4 +4,9 @@ module CommentsHelper
     @issue = Issue.find(params[:issue_id])
   end
 
+  def comment_user
+   @comment.user_id = current_user.id
+   @comment.save
+ end
+
 end
