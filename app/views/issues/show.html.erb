@@ -7,8 +7,9 @@
     <h4 class="issue-solution-title">Solution</h4>
     <p class="issue-solution"><%= @issue.solution%></p>
     <p class="issue-edit-delete">
-      <% if @issue.user_id == current_user.id %>
+      <% if current_user != nil && @issue.user_id == current_user.id %>
         <%= link_to 'Edit', edit_issue_path(@issue) %> | <%= link_to 'Delete', @issue, method: :delete, data: {confirm: 'Are you sure?'} %>
+        <%else%>
     <% end %>
     </p>
 </div>
